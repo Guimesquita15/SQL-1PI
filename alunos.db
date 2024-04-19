@@ -7,6 +7,8 @@ CREATE TABLE IF NOT EXISTS Alunos (
     Nota REAL
 );
 
+DELETE FROM Alunos;
+
 -- Inserção de registros na tabela Alunos
 INSERT INTO Alunos (Nome, Idade, Classe, Nota) VALUES
 ('João', 17, 10, 8.5),
