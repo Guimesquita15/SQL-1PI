@@ -1,7 +1,22 @@
-body {
-    font-family: Arial, sans-serif;
+body{
+    background-color: rgb(26, 26, 26);
+    color: white;
 }
 
-button {
-    margin: 5px;
+
+
+/* Estilos CSS para a tabela de alunos */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
 }
