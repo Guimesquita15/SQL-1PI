@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" 
+    <title>Consulta de Alunos</title>
+</head>
+<body>
+    <h1>Consulta de Alunos</h1>
+    <button onclick="consultarTodos()">Todos os Alunos</button>
+    <button onclick="consultarMaioresDe15()">Maiores de 15 anos</button>
+    <button onclick="consultarClasse10()">Classe 10</button>
+    <div id="resultado"></div>
+
+    <script>
+        function consultarTodos() {
+            fetch('/alunos')
+                .then(response => response.json())
+                .then(data => mostrarResultado(data));
+        }
+
+        function consultarMaioresDe15() {
+            fetch('/alunos/mais_de_15')
+                .then(response => response.json())
+                .then(data => mostrarResultado(data));
+        }
+
+        function consultarClasse10() {
+            fetch('/alunos/classe_10')
+                .then(response => response.json())
+                .then(data => mostrarResultado(data));
+        }
+
+        function mostrarResultado(data) {
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = '';
+
+            data.forEach(aluno => {
+                const alunoInfo = document.createElement('p');
+                alunoInfo.textContent = JSON.stringify(aluno);
+                resultadoDiv.appendChild(alunoInfo);
+            });
+        }
+    </script>
+</body>
+</html>
